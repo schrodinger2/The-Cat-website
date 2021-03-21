@@ -1,4 +1,4 @@
-let targetstring = "i am a";
+let targetstring = "i am a cat";
 let string = "";
 // there must be a better way...but i will go with this
 const alphapet = ["q","w", "e", "r", "t","y", "u", "i","o", "p", "a",
@@ -30,7 +30,8 @@ function thisShouldHaveBeenAClass(i) {
 
     let changer =   setInterval( () => {
 
-      string = string.replace(string.charAt(i), randomizer());
+      // cant use string.replace because u cant specify which occurrence should be replaced
+      string = randomReplacer(string, i)
       document.querySelector(".para").textContent = string;
       console.log(string);
       if (string.charAt(i) == targetstring.charAt(i)) {clearInterval(changer);}
@@ -38,14 +39,12 @@ function thisShouldHaveBeenAClass(i) {
 
 }
 
-// for (var i = 0; i < targetstring.length; i++) {
-//   thisShouldHaveBeenAClass(i)
-// }
+for (var i = 0; i < targetstring.length; i++) {
+  thisShouldHaveBeenAClass(i)
+}
 
-  // thisShouldHaveBeenAClass(0)
-  // thisShouldHaveBeenAClass(1)
-  // thisShouldHaveBeenAClass(2)
-  // thisShouldHaveBeenAClass(3)
-  // thisShouldHaveBeenAClass(4)
-  thisShouldHaveBeenAClass(5)
-  // thisShouldHaveBeenAClass(6)
+
+function randomReplacer(string, i) {
+  let str = string.slice(0, i) + randomizer() + string.slice(i + 1) //deleting the (i)th letter from the string and adding random one
+  return str;
+}
