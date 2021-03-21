@@ -29,8 +29,13 @@ function thisShouldHaveBeenAClass(i) {
     }, 100);
 }
 
-let startingColor = 100 //rgb
-setInterval( () => { timeGradient(2); }, 100);
+let startingColor = 101 //rgb
+
+let colorChange = setInterval( () => {
+  timeGradient(2);
+  if (startingColor >= 255) {clearInterval(colorChange)} 
+}, 100);
+
 
 for (var i = 0; i < targetstring.length; i++) {thisShouldHaveBeenAClass(i)}
 
@@ -43,5 +48,5 @@ function randomReplacer(string, i) {
 function timeGradient(i) {
   startingColor += i
   document.querySelector(".para").style.color = `rgb(${startingColor} ,${startingColor} ,${startingColor})`;
-
+  console.log(startingColor);
 }
