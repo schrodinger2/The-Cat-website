@@ -1,0 +1,31 @@
+body {
+  background-color: #123;
+}
+
+.nav {
+  animation: ease-in nav 1s;
+  height: 6vh;
+  width: 100vw;
+  display: block;
+  background: #000;
+  position: fixed;
+  top: 0;
+  z-index: 111;
+}
+
+/* getting rid of the first page */
+.firstPage {
+  display: none;
+}
+
+/* keyframes */
+
+@keyframes nav {
+  0% {
+    top: -6vh
+  }
+
+  100% {
+    top: 0;
+  }
+}

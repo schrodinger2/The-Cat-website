@@ -6,10 +6,11 @@
 :root {
   --first-theme: #000;
 }
-.page {
+
+body {
+  background: var(--first-theme);
   width: 100vw;
   height: 100vh;
-  background: var(--first-theme);
   display: flex;
   justify-content: center;
   align-items: center;

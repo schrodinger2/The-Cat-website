@@ -20,6 +20,7 @@ document.querySelector(".para").textContent = string;
 //changing the string letters randomly
 
 let correctLetters = 0;
+
 function thisShouldHaveBeenAClass(i) {
   let changer = setInterval(() => {
 
@@ -33,7 +34,7 @@ function thisShouldHaveBeenAClass(i) {
       }
       clearInterval(changer);
     }
-  }, 80);
+  }, 65);
 }
 
 for (var i = 0; i < targetstring.length; i++) {
@@ -48,7 +49,7 @@ let colorChange = setInterval(() => {
   if (startingColor >= 255) {
     clearInterval(colorChange)
   }
-}, 80);
+}, 65);
 
 
 
@@ -72,18 +73,19 @@ function timeGradient(i) {
 //end of preloader
 
 function newPage() {
-  let height = document.body.clientHeight/3;
-  let width = document.body.clientWidth/3;
+  let height = document.body.clientHeight / 4;
+  let width = document.body.clientWidth / 4;
   let rects = [];
-  for (var j = 0; j < 3; j++) {
-    for (var i = 0; i < 3; i++) {
+  for (var j = 0; j < 4; j++) {
+    for (var i = 0; i < 4; i++) {
       let rect = document.createElement("div");
       //styling
-      rect.style.background = "#fff";
+      rect.className = "firstPage";
+      rect.style.background = "#123";
       rect.style.height = `${height}px`;
       rect.style.width = `${width}px`;
       rect.style.position = "fixed";
-      rect.style.top = `${height*j}px`;
+      rect.style.bottom = `${height*j}px`;
       rect.style.right = `${width*i}px`;
       rects.push(rect)
     }
@@ -93,9 +95,13 @@ function newPage() {
   let randomDisplay = setInterval(() => {
     let randomRect = rects[i];
     document.body.appendChild(randomRect);
-    if (i == 8) {
+    if (i == 15) {
       clearInterval(randomDisplay)
     }
     i++
-  }, 150);
+  }, 95);
+  setTimeout(() => {
+    const head = document.querySelector("head");
+    head.innerHTML += '<link rel="stylesheet" href="./second-page.css">';
+  }, 1700);
 }
